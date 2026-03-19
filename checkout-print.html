@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thank You - Print</title>
+  <script src="./assets/qrcode.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .name {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .qr-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .qr-box {
+      width: 340px;
+      height: 340px;
+      border: 1px solid #ddd;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .address {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 16px;
+      line-height: 1.7;
+      word-break: break-all;
+      border: 1px solid #ddd;
+      padding: 16px;
+      border-radius: 10px;
+    }
+
+    @page {
+      margin: 0.5in;
+    }
+  </style>
+</head>
+<body>
+  <div id="pages"></div>
+
+  <script>
+    const wallets = [
+      { id: "paypal", name: "PayPal", address: "@SpencerDupee\nhttps://www.paypal.me/SpencerDupee", uri: "https://www.paypal.me/SpencerDupee" },
+      { id: "btc", name: "Bitcoin", address: "bc1qvlg5kpgh3tnnad0t5llc2jl3gcm670fchqpqu0", uri: "bitcoin:bc1qvlg5kpgh3tnnad0t5llc2jl3gcm670fchqpqu0" },
+      { id: "sol", name: "Solana", address: "EoVV9JQx1XqDKQALwykzvqYAu1W3duSvF7Qsmu4XzTrR", uri: "solana:EoVV9JQx1XqDKQALwykzvqYAu1W3duSvF7Qsmu4XzTrR" },
+      { id: "eth", name: "Ethereum", address: "0x802bBa8b9B71C0f7C6b845a6c70bCab7E8739c64", uri: "ethereum:0x802bBa8b9B71C0f7C6b845a6c70bCab7E8739c64" },
+      { id: "sui", name: "Sui", address: "0x318f95e51ac668e9a7ffac3fe368a9e7d1be24b4979956daeb789c33b71d2c20", uri: "sui:0x318f95e51ac668e9a7ffac3fe368a9e7d1be24b4979956daeb789c33b71d2c20" }
+    ];
+
+    function pageTemplate(w) {
+      return `
+        <section class="page">
+          <div class="message">
+            Dear wonderful person,<br>
+            Thank you.<br>
+            Sincerely,<br>
+            Spencer Dupee
+          </div>
+          <div class="name">${w.name}</div>
+          <div class="qr-wrap">
+            <div class="qr-box">
+              <canvas id="qr-${w.id}" width="316" height="316"></canvas>
+            </div>
+          </div>
+          <div class="address">${w.address}</div>
+        </section>
+      `;
+    }
+
+    async function render() {
+      const pages = document.getElementById("pages");
+      pages.innerHTML = wallets.map(pageTemplate).join("");
+      for (const w of wallets) {
+        await QRCode.toCanvas(document.getElementById(`qr-${w.id}`), w.uri, {
+          width: 316,
+          margin: 1,
+          color: { dark: "#111111", light: "#ffffff" }
+        });
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>
