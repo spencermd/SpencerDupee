@@ -1,4 +1,4 @@
-# Spencer Checkout
+# I love you all have a nice day!
 
 ## PayPal
 
