@@ -1,4 +1,4 @@
-# I love you all have a nice day!
+# Check this out lol
 
 ## PayPal
 
@@ -33,8 +33,6 @@ EoVV9JQx1XqDKQALwykzvqYAu1W3duSvF7Qsmu4XzTrR
 0x318f95e51ac668e9a7ffac3fe368a9e7d1be24b4979956daeb789c33b71d2c20
 
 ---
-
-Dear wonderful person,
 
 Thank you.
 
