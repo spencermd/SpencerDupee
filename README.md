@@ -1,5 +1,3 @@
-# Check this out
-
 ## PayPal
 
 ![PayPal QR](./paypal-qr.png)
