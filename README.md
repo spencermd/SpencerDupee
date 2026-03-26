@@ -1,4 +1,4 @@
-# Check this out lol
+# Check this out
 
 ## PayPal
 
