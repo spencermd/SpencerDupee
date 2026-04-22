@@ -29,10 +29,3 @@ EoVV9JQx1XqDKQALwykzvqYAu1W3duSvF7Qsmu4XzTrR
 ![Sui QR](./assets/sui-qr.png)
 
 0x318f95e51ac668e9a7ffac3fe368a9e7d1be24b4979956daeb789c33b71d2c20
-
----
-
-Thank you.
-
-Sincerely,
-Spencer Dupee
